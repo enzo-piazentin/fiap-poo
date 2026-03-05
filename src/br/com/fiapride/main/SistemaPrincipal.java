@@ -1,39 +1,36 @@
 package br.com.fiapride.main;
 
-import br.com.fiapride.model.Carro;
+import br.com.fiapride.model.Passageiro;
 
 public class SistemaPrincipal {
     public static void main(String[] args) {
-        Carro carro1 = new Carro();
+        Passageiro passageiro1 = new Passageiro("Ana Silva", "123.456.789-00");
+        System.out.println("Recarga passageiro 1");
+        passageiro1.adicionarSaldo(50.0);
+        passageiro1.validadePassaporte(28);
 
-        carro1.modelo = "Fiat Argo";
-        carro1.tipoDeCambio = "Manual";
-        carro1.tiopoDeCombustivel = "Gasolina";
-        carro1.ligarPiscaAlerta = "Ligando pisca alerta";
-        carro1.ligarLimpadorDeParabrisa = "Ligando limpador de parabrisa";
+        Passageiro passageiro2 = new Passageiro("Carlos Souza", "987.654.321-00");
+        System.out.println("Recarga passageiro 2");
+        passageiro2.adicionarSaldo(12.5);
+        passageiro2.validadePassaporte(24);
 
-        System.out.println("Modelo: " + carro1.modelo);
-        System.out.println("Tipo de câmbio: " + carro1.tipoDeCambio);
-        System.out.println("Tipo de combustível: " + carro1.tiopoDeCombustivel);
-        System.out.println(carro1.ligarPiscaAlerta);
-        System.out.println(carro1.ligarLimpadorDeParabrisa);
+        System.out.println("""
+                
+                --------Sistema FiapRide--------
+                """);
+        System.out.println("Passageiro: " + passageiro1.nome + " | Saldo: R$" + passageiro1.saldo +"| CPF: " + passageiro1.cpf + " | Passaporte: " + (passageiro1.Passaporte ? "Válido" : "Vencido"));
 
-        Carro carro2 = new Carro();
-        carro2.modelo = "Chevrolet Onix";
-        carro2.tipoDeCambio = "Automático";
-        carro2.tiopoDeCombustivel = "Flex";
-        carro2.ligarPiscaAlerta = "Ligando pisca alerta";
-        carro2.ligarLimpadorDeParabrisa = "Ligando limpador de parabrisa";
+
+        System.out.println("Pagando viagem do passageiro 1");
+        passageiro1.pagarViagem(20);
+        passageiro1.passaporteConfiscado(passageiro1.Passaporte);
 
         System.out.println(" ");
-        System.out.println("--------------------------------------");
-        System.out.println(" ");
 
-        System.out.println("Modelo: " + carro2.modelo);
-        System.out.println("Tipo de câmbio: " + carro2.tipoDeCambio);
-        System.out.println("Tipo de combustível: " + carro2.tiopoDeCombustivel);
-        System.out.println(carro2.ligarPiscaAlerta);
-        System.out.println(carro2.ligarLimpadorDeParabrisa);
+        System.out.println("Passageiro: " + passageiro2.nome + " | Saldo: R$" + passageiro2.saldo +"| CPF: " + passageiro2.cpf + " | Passaporte: " + (passageiro2.Passaporte ? "Válido" : "Vencido"));
+        System.out.println("Pagando viagem do passageiro 2");
+        passageiro2.passaporteConfiscado(passageiro2.Passaporte);
+        passageiro2.pagarViagem(20);
     };
 
 }
