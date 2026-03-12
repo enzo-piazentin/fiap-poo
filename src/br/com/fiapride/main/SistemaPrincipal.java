@@ -1,39 +1,23 @@
 package br.com.fiapride.main;
 
-import br.com.fiapride.model.Carro;
+import br.com.fiapride.model.Conta;
 
 public class SistemaPrincipal {
     public static void main(String[] args) {
-        Carro carro1 = new Carro();
+        Conta conta1 = new Conta("Maria", "123.456.789-00");
 
-        carro1.modelo = "Fiat Argo";
-        carro1.tipoDeCambio = "Manual";
-        carro1.tiopoDeCombustivel = "Gasolina";
-        carro1.ligarPiscaAlerta = "Ligando pisca alerta";
-        carro1.ligarLimpadorDeParabrisa = "Ligando limpador de parabrisa";
+        conta1.setSaldo(500);
+        System.out.println("Saldo Atual: " + conta1.getSaldo());
+        conta1.realizarCompra(150);
+        conta1.pagarDivida(true);
 
-        System.out.println("Modelo: " + carro1.modelo);
-        System.out.println("Tipo de câmbio: " + carro1.tipoDeCambio);
-        System.out.println("Tipo de combustível: " + carro1.tiopoDeCombustivel);
-        System.out.println(carro1.ligarPiscaAlerta);
-        System.out.println(carro1.ligarLimpadorDeParabrisa);
+        System.out.println("-----------------------------");
 
-        Carro carro2 = new Carro();
-        carro2.modelo = "Chevrolet Onix";
-        carro2.tipoDeCambio = "Automático";
-        carro2.tiopoDeCombustivel = "Flex";
-        carro2.ligarPiscaAlerta = "Ligando pisca alerta";
-        carro2.ligarLimpadorDeParabrisa = "Ligando limpador de parabrisa";
+        Conta conta2 = new Conta("João", "987.654.321-00");
+        conta2.setSaldo(300);
+        System.out.println("Saldo Atual: " + conta2.getSaldo());
+        conta2.realizarCompra(350);
+        conta2.pagarDivida(false);
 
-        System.out.println(" ");
-        System.out.println("--------------------------------------");
-        System.out.println(" ");
-
-        System.out.println("Modelo: " + carro2.modelo);
-        System.out.println("Tipo de câmbio: " + carro2.tipoDeCambio);
-        System.out.println("Tipo de combustível: " + carro2.tiopoDeCombustivel);
-        System.out.println(carro2.ligarPiscaAlerta);
-        System.out.println(carro2.ligarLimpadorDeParabrisa);
-    };
-
+    }
 }
