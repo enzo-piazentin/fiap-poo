@@ -4,20 +4,18 @@ import br.com.fiapride.model.Conta;
 
 public class SistemaPrincipal {
     public static void main(String[] args) {
-        Conta conta1 = new Conta("Maria", "123.456.789-00");
+        Conta conta1 = new Conta("", "123.456.789-00", "(11)99462 0236");
 
         conta1.setSaldo(500);
         System.out.println("Saldo Atual: " + conta1.getSaldo());
         conta1.realizarCompra(150);
         conta1.pagarDivida(true);
 
-        System.out.println("-----------------------------");
+        conta1.alterarTelefone(null);
+        conta1.alterarTelefone(" ");
+        conta1.alterarTelefone("");
+        conta1.alterarTelefone("(11)987654321");
 
-        Conta conta2 = new Conta("João", "987.654.321-00");
-        conta2.setSaldo(300);
-        System.out.println("Saldo Atual: " + conta2.getSaldo());
-        conta2.realizarCompra(350);
-        conta2.pagarDivida(false);
-
+        conta1.infoUsuario();
     }
 }
