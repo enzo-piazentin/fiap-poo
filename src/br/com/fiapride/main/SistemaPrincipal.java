@@ -1,21 +1,30 @@
 package br.com.fiapride.main;
 
-import br.com.fiapride.model.Conta;
+import br.com.fiapride.model.Dono;
+import br.com.fiapride.model.Pet;
 
 public class SistemaPrincipal {
     public static void main(String[] args) {
-        Conta conta1 = new Conta("", "123.456.789-00", "(11)99462 0236");
+        System.out.println("--- FIAPRIDE: Inicializando Sistema ---");
 
-        conta1.setSaldo(500);
-        System.out.println("Saldo Atual: " + conta1.getSaldo());
-        conta1.realizarCompra(150);
-        conta1.pagarDivida(true);
+        Dono enzo = new Dono("Enzo Ribeiro", "987.654.321-00", "(11) 91234-5678", "enzo@gmail.com");
+        Pet petDoEnzo = new Pet("Rex", "Cachorro", "Labrador", enzo);
 
-        conta1.alterarTelefone(null);
-        conta1.alterarTelefone(" ");
-        conta1.alterarTelefone("");
-        conta1.alterarTelefone("(11)987654321");
+        enzo.atualizarEmail("enzo@gmail.com");
 
-        conta1.infoUsuario();
+        petDoEnzo.exibirFichaDoPet();
+        System.out.println("\n-----------------------------------\n");
+        petDoEnzo.exibirFichaGeral();
+
+        System.out.println("\n-----------------------------------\n");
+
+        Dono mari = new Dono("Maria Oliveira", "555.666.777-88", "(11) 99876-5432", "mari@gmail.com");
+        Pet petDaMari = new Pet("Mia", "Gato", "Siamês", mari);
+
+
+        System.out.println("\n-----------------------------------\n");
+        petDaMari.exibirFichaDoPet();
+        System.out.println("\n-----------------------------------\n");
+        petDaMari.exibirFichaGeral();
     }
 }
