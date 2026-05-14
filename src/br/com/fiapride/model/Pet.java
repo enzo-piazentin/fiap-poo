@@ -1,44 +1,86 @@
 package br.com.fiapride.model;
 
 public class Pet {
-    private String nome, especie, raca;
+    private String nome, nomeRaca;
+    private int idade;
     private Dono dono;
+    private boolean raca;
 
-    public Pet(String nome, String especie, String raca, Dono dono){
-        this.nome = nome;
-        this.especie = especie;
-        this.raca = raca;
-        this.dono = dono;
+    public Pet(String nome, boolean raca, int idade, String nomeRaca,Dono dono){
+        if (nome != null && !nome.trim().isBlank() && idade >= 0 || idade <= 18 && dono.equals(dono.getNome()) && dono.getNome() == null){
+            this.raca = raca;
+            this.nome = nome;
+            this.idade = idade;
+            this.dono = dono;
+            this.nomeRaca = nomeRaca;
+        } else {
+            System.out.println("Erro: Informações erradas ou registro faltando");
+        }
 
-        System.out.println("Novo pet registrado: " + this.nome + " (" + this.especie + " - " + this.raca + ")");
+        if (raca) {
+            System.out.println("Novo pet registrado: " + this.nome + "| Raça: " + this.raca);
+        } else {
+            System.out.println("Novo pet registrado: " + this.nome);
+        }
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getEspecie() {
-        return especie;
-    }
 
-    public String getRaca() {
+    public boolean isRaca() {
         return raca;
     }
 
-    public void exibirFichaDoPet(){
-        System.out.println("Ficha do Pet:");
-        System.out.println("Nome: " + this.nome);
-        System.out.println("Espécie: " + this.especie);
-        System.out.println("Raça: " + this.raca);
+    public String getNomeRaca() {
+        return nomeRaca;
     }
 
-    public void exibirFichaGeral(){
-        System.out.println("Ficha Geral:");
-        System.out.println("Dono: " + this.dono.getNome());
-        System.out.println("CPF: " + this.dono.getCpf());
-        System.out.println("Contato: " + this.dono.getNumero() + " | " + this.dono.getEmail());
-        System.out.println("Nome: " + this.nome);
-        System.out.println("Espécie: " + this.especie);
-        System.out.println("Raça: " + this.raca);
+    public int getIdade() {
+        return idade;
+    }
+
+    public void exibirFichaDoPet(){
+        if (isRaca()){
+            System.out.printf("""
+                
+                ----------------------Ficha do Pet----------------------
+                Nome: %s | Idade: %d |Raça: %s
+                -------------------------------------------------------
+                """, getNome(), getIdade(),getNomeRaca());
+        } else {
+            System.out.printf("""
+                
+                ----------------------Ficha do Pet----------------------
+                Nome: %s | Idade: %d
+                -------------------------------------------------------
+                """, getNome(), getIdade());
+        }
+    }
+
+
+    public void exibirFichaGeral() {
+        if (dono.getNome() != null && dono.getCpf() != null && dono.getNumero() != null && dono.getEmail() != null) {
+            if (isRaca()) {
+                System.out.println("""
+                        
+                        ----------------------Ficha Geral----------------------
+                        Dono: %s | CPF: %s | Contato: %s - %s
+                        Nome: %s | Idade: %d | Raça: %s
+                        -------------------------------------------------------
+                        """.formatted(dono.getNome(), dono.getCpf(), dono.getNumero(), dono.getEmail(), getNome(), getIdade(), getNomeRaca()));
+            } else {
+                System.out.println("""
+                        
+                        ----------------------Ficha Geral----------------------
+                        Dono: %s | CPF: %s | Contato: %s - %s
+                        Nome: %s | Idade: %d
+                        -------------------------------------------------------
+                        """.formatted(dono.getNome(), dono.getCpf(), dono.getNumero(), dono.getEmail(), getNome(), getIdade()));
+            }
+        } else {
+            System.out.println("\nErro: Erro em pegar informações do dono! Cadastro incompleto!\n");
+        }
     }
 }

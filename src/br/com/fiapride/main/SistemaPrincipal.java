@@ -1,30 +1,33 @@
 package br.com.fiapride.main;
 
+import br.com.fiapride.model.Cachorro;
 import br.com.fiapride.model.Dono;
+import br.com.fiapride.model.Gato;
 import br.com.fiapride.model.Pet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SistemaPrincipal {
     public static void main(String[] args) {
         System.out.println("--- FIAPRIDE: Inicializando Sistema ---");
 
-        Dono enzo = new Dono("Enzo Ribeiro", "987.654.321-00", "(11) 91234-5678", "enzo@gmail.com");
-        Pet petDoEnzo = new Pet("Rex", "Cachorro", "Labrador", enzo);
+        List<Dono> donos = new ArrayList<>();
+        List<Pet> animais = new ArrayList<>();
 
-        enzo.atualizarEmail("enzo@gmail.com");
+        Dono enzo = new Dono("Enzo", "39386777766", "11994620236", "enzo@gmail.com");
+        donos.add(enzo);
+        animais.add(new Cachorro("Rex", true, 5, "Pastor Alemão", enzo));
 
-        petDoEnzo.exibirFichaDoPet();
-        System.out.println("\n-----------------------------------\n");
-        petDoEnzo.exibirFichaGeral();
+        enzo.atualizarEmail("enzop@gmail.com");
 
-        System.out.println("\n-----------------------------------\n");
+        Dono mari = new Dono("Maria Oliveira", "55566677788", "11998765432", "mari@gmail.com");
+        donos.add(mari);
+        animais.add(new Gato("Gata", false, 3, null, mari));
 
-        Dono mari = new Dono("Maria Oliveira", "555.666.777-88", "(11) 99876-5432", "mari@gmail.com");
-        Pet petDaMari = new Pet("Mia", "Gato", "Siamês", mari);
-
-
-        System.out.println("\n-----------------------------------\n");
-        petDaMari.exibirFichaDoPet();
-        System.out.println("\n-----------------------------------\n");
-        petDaMari.exibirFichaGeral();
+        for (Pet pet : animais ){
+            pet.exibirFichaDoPet();
+            pet.exibirFichaGeral();
+        }
     }
 }
