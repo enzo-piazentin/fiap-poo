@@ -1,6 +1,6 @@
 package br.com.fiapride.model;
 
-public class Pet {
+public abstract class Pet {
     private String nome, nomeRaca;
     private int idade;
     private Dono dono;
@@ -19,26 +19,11 @@ public class Pet {
 
         if (raca) {
             System.out.println("Novo pet registrado: " + this.nome + "| Raça: " + this.raca);
+            EmitirSom();
         } else {
             System.out.println("Novo pet registrado: " + this.nome);
+            EmitirSom();
         }
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-
-    public boolean isRaca() {
-        return raca;
-    }
-
-    public String getNomeRaca() {
-        return nomeRaca;
-    }
-
-    public int getIdade() {
-        return idade;
     }
 
     public void exibirFichaDoPet(){
@@ -58,7 +43,6 @@ public class Pet {
                 """, getNome(), getIdade());
         }
     }
-
 
     public void exibirFichaGeral() {
         if (dono.getNome() != null && dono.getCpf() != null && dono.getNumero() != null && dono.getEmail() != null) {
@@ -82,5 +66,24 @@ public class Pet {
         } else {
             System.out.println("\nErro: Erro em pegar informações do dono! Cadastro incompleto!\n");
         }
+    }
+
+    public abstract void EmitirSom();
+
+    public String getNome() {
+        return nome;
+    }
+
+
+    public boolean isRaca() {
+        return raca;
+    }
+
+    public String getNomeRaca() {
+        return nomeRaca;
+    }
+
+    public int getIdade() {
+        return idade;
     }
 }

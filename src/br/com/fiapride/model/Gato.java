@@ -19,4 +19,8 @@ public class Gato extends Pet{
         super.exibirFichaGeral();
     }
 
+    @Override
+    public void EmitirSom() {
+        System.out.println("Miua Miua, Estou feliz que vc me cadastrou");
+    }
 }
