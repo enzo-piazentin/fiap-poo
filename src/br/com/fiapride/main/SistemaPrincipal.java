@@ -18,8 +18,12 @@ public class SistemaPrincipal {
         Dono enzo = new Dono("Enzo", "39386777766", "11994620236", "enzo@gmail.com");
         donos.add(enzo);
         animais.add(new Cachorro("Rex", true, 5, "Pastor Alemão", enzo));
-
         enzo.atualizarEmail("enzop@gmail.com");
+
+
+        Dono edson = new Dono("Edson", "39386777766", "11994620236", "edson@gmail.com");
+        donos.add(edson);
+        animais.add(new Gato("Felix", true, 1, "Ragdoll", edson));
 
         Dono mari = new Dono("Maria Oliveira", "55566677788", "11998765432", "mari@gmail.com");
         donos.add(mari);
