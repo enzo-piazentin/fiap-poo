@@ -32,6 +32,7 @@ public class SistemaPrincipal {
         for (Pet pet : animais ){
             pet.exibirFichaDoPet();
             pet.exibirFichaGeral();
+
         }
     }
 }

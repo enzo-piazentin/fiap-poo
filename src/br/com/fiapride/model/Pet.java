@@ -1,6 +1,6 @@
 package br.com.fiapride.model;
 
-public abstract class Pet {
+public abstract class Pet implements Comportamental {
     private String nome, nomeRaca;
     private int idade;
     private Dono dono;

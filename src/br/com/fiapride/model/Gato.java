@@ -11,6 +11,7 @@ public class Gato extends Pet{
     public void exibirFichaDoPet() {
         System.out.println("\n🐱 FICHA DO GATO 🐱");
         super.exibirFichaDoPet();
+        brincar();
     }
 
     @Override
@@ -22,5 +23,10 @@ public class Gato extends Pet{
     @Override
     public void EmitirSom() {
         System.out.println("Miua Miua, Estou feliz que vc me cadastrou");
+    }
+
+    @Override
+    public void brincar() {
+        System.out.println(getNome() + " está caçando uma bolinha de lã! 🧶");
     }
 }
